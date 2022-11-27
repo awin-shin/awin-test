@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${text}">Title</title>
+  <link href="/css/style.css" rel="stylesheet" />
+
+</head>
+<body>
+
+<section class="notice">
+  <div class="page-title">
+    <div class="container">
+      <h3>공지사항</h3>
+    </div>
+  </div>
+
+  <!-- board seach area -->
+<!--  <div id="board-search">-->
+<!--    <div class="container">-->
+<!--      <div class="search-window">-->
+<!--        <form action="">-->
+<!--          <div class="search-wrap">-->
+<!--            <label for="search" class="blind">공지사항 내용 검색</label>-->
+<!--            <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">-->
+<!--            <button type="submit" class="btn btn-dark">검색</button>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <!-- board list area -->
+  <div id="board-list">
+    <div class="container">
+      <table class="board-table">
+        <thead>
+        <tr>
+          <th scope="col" class="th-num">번호</th>
+          <th scope="col" class="th-title">제목</th>
+          <th scope="col" class="th-date">등록일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="data, i : ${datas}">
+          <td th:text="${data.id}">3</td>
+          <th>
+            <a th:href="@{/notice/detail(id=${data.id})}">[공지사항] 개인정보 처리방침 변경안내처리방침</a>
+          </th>
+          <td th:text="${data.createAt}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</section>
+</body>
+</html>
